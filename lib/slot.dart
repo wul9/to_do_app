@@ -12,7 +12,6 @@ class Slot extends StatefulWidget {
   @override
   State<Slot> createState() => _SlotState();
 }
-
 class _SlotState extends State<Slot> {
   @override
   Widget build(BuildContext context) {
@@ -102,7 +101,6 @@ class ManagerSlot extends StatefulWidget {
   @override
   State<ManagerSlot> createState() => _ManagerSlotState();
 }
-
 class _ManagerSlotState extends State<ManagerSlot> {
   DateTime? date = DateTime.now();
   TimeOfDay? time = TimeOfDay.now();
@@ -114,7 +112,7 @@ class _ManagerSlotState extends State<ManagerSlot> {
         initialValue: widget.title,
         decoration: const InputDecoration(
             border: OutlineInputBorder(), labelText: 'Title'),
-        onChanged: (value) => setState(() => widget.title = value),
+        onChanged: (value) => widget.title = value,
         maxLines: 1,
       )),
       const Padding(padding: EdgeInsets.all(16), child: Text('')),
@@ -172,7 +170,7 @@ class _ManagerSlotState extends State<ManagerSlot> {
         initialValue: widget.details,
         decoration: const InputDecoration(
             border: OutlineInputBorder(), labelText: 'Details'),
-        onChanged: (value) => setState(() => widget.details = value),
+        onChanged: (value) => widget.details = value,
         maxLines: null,
       ))
     ]);
@@ -185,12 +183,12 @@ class SlotPage extends StatefulWidget {
   @override
   State<SlotPage> createState() => _SlotPageState();
 }
-
 class _SlotPageState extends State<SlotPage> {
+  late Timer timer;
   @override
   void initState(){
     super.initState();
-    Timer.periodic(const Duration(milliseconds: 50), (timer) => setState((){}));
+    timer = Timer.periodic(const Duration(milliseconds: 50), (timer) => setState((){}));
   }
   @override
   Widget build(BuildContext context) {
@@ -199,6 +197,7 @@ class _SlotPageState extends State<SlotPage> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
+            timer.cancel();
             Navigator.pop(context);
           },
         ),

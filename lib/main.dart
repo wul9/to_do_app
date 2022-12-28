@@ -71,12 +71,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                         },
                                         child: const Text(
                                           'Add',
-                                          style: TextStyle(fontSize: 25),
+                                          style: TextStyle(fontSize: 20),
                                         )),
                                     TextButton(
                                         onPressed: () => Navigator.pop(context),
                                         child: const Text('Cancel',
-                                            style: TextStyle(fontSize: 25)))
+                                            style: TextStyle(fontSize: 20)))
                                   ],
                                 ));
                       }),
