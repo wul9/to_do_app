@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -187,8 +188,12 @@ class SlotPage extends StatefulWidget {
 
 class _SlotPageState extends State<SlotPage> {
   @override
+  void initState(){
+    super.initState();
+    Timer.periodic(const Duration(milliseconds: 50), (timer) => setState((){}));
+  }
+  @override
   Widget build(BuildContext context) {
-    //Timer.periodic(Duration(), (timer) => print(sd.value.details));
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
