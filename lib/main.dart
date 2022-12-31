@@ -39,10 +39,10 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: SafeArea(
-          minimum: const EdgeInsets.all(20),
+          minimum: const EdgeInsets.all(10),
           child: Column(
             children: [
-                  ElevatedButton(
+                  Padding(padding: const EdgeInsets.all(10), child: ElevatedButton(
                       child: const Text('Add Task',
                           style: TextStyle(fontSize: 25)),
                       onPressed: () {
@@ -79,35 +79,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                             style: TextStyle(fontSize: 20)))
                                   ],
                                 ));
-                      }),
+                      })),
               Flexible(
                 child: ListView.builder(
                     itemCount: tasks.length,
                     itemBuilder: ((context, i) {
                       return Padding(
-                          padding: const EdgeInsets.all(10),
+                          padding: const EdgeInsets.only(top: 5),
                           child: Row(
                             children: [
                               Expanded(
-                                child: ElevatedButton(
-                                    onPressed: () {
-                                      Navigator.of(context)
-                                          .push(MaterialPageRoute(
-                                              builder: (context) =>
-                                                  SlotPage(tasks[i])))
-                                          .then((_) {
-                                        bool temp = tasks[i].selected;
-                                        setState((() {
-                                          tasks[i] = Slot(
-                                              tasks[i].title,
-                                              tasks[i].details,
-                                              tasks[i].date,
-                                              tasks[i].time);
-                                          tasks[i].selected = temp;
-                                        }));
-                                      });
-                                    },
-                                    child: tasks[i]),
+                                child: tasks[i]
                               ),
                               IconButton(
                                 icon: const Icon(Icons.delete,
