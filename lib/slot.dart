@@ -37,24 +37,17 @@ class _SlotState extends State<Slot> {
                           setState((() => widget.selected = !widget.selected))),
                   Expanded(
                       child: Text(
-                    overflow: TextOverflow.ellipsis,
                     widget.title,
                     style: const TextStyle(color: Colors.white, fontSize: 18),
                     maxLines: 10,
                   )),
                   Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          widget.date,
+                          '${widget.date}\n${widget.time}',
                           style: const TextStyle(
                               color: Colors.white, fontSize: 15),
                         ),
-                        Text(
-                          widget.time,
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 15),
-                        )
                       ]),
                   IconButton(
                     icon: const Icon(Icons.edit, color: Colors.white),

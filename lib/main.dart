@@ -52,7 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         showDialog(
                             context: context,
                             builder: (context) => AlertDialog(
-                                  actionsAlignment: MainAxisAlignment.center,
                                   title: const Text(
                                     'Add Task',
                                     style: TextStyle(
